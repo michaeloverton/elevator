@@ -9,9 +9,10 @@ public class ScreenFocus : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        Debug.Log("do something");
         if(Input.GetKeyDown(KeyCode.F))
         {
+            Debug.Log("pressed F");
+            
             if(playerCamera.enabled)
             {
                 playerCamera.enabled = false;

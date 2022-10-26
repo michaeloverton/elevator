@@ -28,10 +28,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         [SerializeField] private AudioPlayer playerAudio;
 
-        // Cig
-        [SerializeField] private GameObject cig;
-        [SerializeField] private MindManager mindManager;
-
         // PauseManager
         [SerializeField] PauseManager pauseManager;
         private bool paused = false;
@@ -105,22 +101,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
-
-            // Manage cig.
-            if (Input.GetKeyUp(KeyCode.F))
-            {
-                cig.SetActive(!cig.active);
-            }
-
-            if(cig.active) 
-            {
-                mindManager.gainMind(mindManager.getSmokingMindAmount());
-            }
-
-            if (Input.GetKeyUp(KeyCode.G))
-            {
-                mindManager.TakeChem();
-            }
         }
 
 
