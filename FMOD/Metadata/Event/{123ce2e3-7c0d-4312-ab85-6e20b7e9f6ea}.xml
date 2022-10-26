@@ -152,8 +152,6 @@
 	<object class="MixerBusEffectChain" id="{6fd2a2de-1556-4120-8f9d-05104a8ff01f}">
 		<relationship name="effects">
 			<destination>{66da1760-3d09-4f43-8ce8-d07733de4ff2}</destination>
-			<destination>{60bcf5fb-089c-4c33-a2d2-296366f6ac28}</destination>
-			<destination>{7c0fbfda-8522-4e7d-bf9d-e172da7f32fa}</destination>
 			<destination>{b5d5b0e8-f4cf-44f9-9d54-5e48b9df01e1}</destination>
 		</relationship>
 	</object>
@@ -184,8 +182,6 @@
 			<value>0.591913342</value>
 		</property>
 	</object>
-	<object class="PitchShifterEffect" id="{60bcf5fb-089c-4c33-a2d2-296366f6ac28}" />
-	<object class="PitchShifterEffect" id="{7c0fbfda-8522-4e7d-bf9d-e172da7f32fa}" />
 	<object class="MixerBusFader" id="{b5d5b0e8-f4cf-44f9-9d54-5e48b9df01e1}" />
 	<object class="AutomationCurve" id="{56babb99-7243-4bc0-84a0-b27ed92d5b20}">
 		<relationship name="parameter">
