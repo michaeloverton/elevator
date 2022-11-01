@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class PauseScreen : MonoBehaviour
 {
-    [SerializeField] PauseManager pauseManager;
     private Canvas pauseScreen;
 
     void Start()
     {
         pauseScreen = GetComponent<Canvas>();
-        pauseManager.OnPausePressed += onPaused;
+        PauseManager.Instance.OnPausePressed += onPaused;
     }
 
     void onPaused(bool val)

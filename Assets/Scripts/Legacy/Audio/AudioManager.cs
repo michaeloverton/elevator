@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] PauseManager pauseManager;
     [SerializeField] private string stepSurfaceParam;
     
     [SerializeField] private string masterFilterParam;
@@ -14,7 +13,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        pauseManager.OnPausePressed += onPausePressed;
+        PauseManager.Instance.OnPausePressed += onPausePressed;
     }
 
     private void onPausePressed(bool val)

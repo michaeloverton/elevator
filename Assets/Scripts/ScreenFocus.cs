@@ -4,24 +4,45 @@ using UnityEngine;
 
 public class ScreenFocus : MonoBehaviour
 {
-    [SerializeField] Camera playerCamera;
-    [SerializeField] Camera focusCamera;
+    [SerializeField] GameObject playerCamera;
+    [SerializeField] GameObject focusCamera;
+    bool focusing = false;
+
+    // void Update()
+    // {
+    //     if(focusing && Input.GetKeyUp(KeyCode.F))
+    //     {
+    //         Debug.Log("unfocusing");
+    //         playerCamera.SetActive(true);
+    //         focusCamera.SetActive(false);
+    //         focusing = false;
+    //     }
+    // }
 
     void OnTriggerStay(Collider other)
     {
-        if(Input.GetKeyDown(KeyCode.F))
+        Debug.Log("staing in trigger");
+
+        if(Input.GetKeyUp(KeyCode.F))
         {
             Debug.Log("pressed F");
             
-            if(playerCamera.enabled)
+            if(!focusing)
             {
-                playerCamera.enabled = false;
-                focusCamera.enabled = true;
+                Debug.Log("switching to focus cam");
+                playerCamera.GetComponentInChildren<Camera>().enabled = false;
+                // playerCamera.GetComponent<Camera>().enabled = false;
+                focusCamera.GetComponent<Camera>().enabled = true;
+                // playerCamera.SetActive(false);
+                // focusCamera.SetActive(true);
+                focusing = true;
             }
             else
             {
-                playerCamera.enabled = true;
-                focusCamera.enabled = false;
+                Debug.Log("switching to player cam");
+                playerCamera.GetComponentInChildren<Camera>().enabled = true;
+                focusCamera.GetComponent<Camera>().enabled = false;
+                focusing = false;
             }
         }
     }

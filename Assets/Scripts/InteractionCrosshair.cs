@@ -8,8 +8,7 @@ public class InteractionCrosshair : MonoBehaviour
     [SerializeField] float crosshairInteractionScale = 0.3f;
     private Vector3 initialCrosshairScale;
     [SerializeField] LayerMask interactableLayers;
-    [SerializeField] float sphereCastDistance = 3f;
-    [SerializeField] float sphereCastRadius = 0.25f;
+    [SerializeField] float raycastDistance = 3f;
     private Outline hitOutline;
 
     void Start()
@@ -22,8 +21,7 @@ public class InteractionCrosshair : MonoBehaviour
     {
         RaycastHit hit;
         
-        if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, sphereCastDistance, interactableLayers))
-        // if(Physics.SphereCast(transform.position, sphereCastRadius, transform.TransformDirection(Vector3.forward), out hit, sphereCastDistance, interactableLayers))
+        if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, raycastDistance, interactableLayers))
         {
             hitOutline = hit.transform.gameObject.GetComponent<Outline>();
             hitOutline.OutlineWidth = 20;
@@ -46,7 +44,7 @@ public class InteractionCrosshair : MonoBehaviour
     {
         // Draws a 5 unit long red line in front of the object
         Gizmos.color = Color.red;
-        Vector3 direction = transform.TransformDirection(Vector3.forward) * sphereCastDistance;
+        Vector3 direction = transform.TransformDirection(Vector3.forward) * raycastDistance;
         Gizmos.DrawRay(transform.position, direction);
     }
 }

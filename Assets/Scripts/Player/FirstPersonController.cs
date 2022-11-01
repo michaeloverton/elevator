@@ -28,8 +28,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         [SerializeField] private AudioPlayer playerAudio;
 
-        // PauseManager
-        [SerializeField] PauseManager pauseManager;
         private bool paused = false;
 
         private Camera m_Camera;
@@ -47,8 +45,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void Awake()
         {
-            pauseManager.OnPausePressed += onPausePressed;
-            pauseManager.OnSensitivityChanged += onSensitivityChanged;
+            PauseManager.Instance.OnPausePressed += onPausePressed;
+            PauseManager.Instance.OnSensitivityChanged += onSensitivityChanged;
         }
 
         // Use this for initialization
